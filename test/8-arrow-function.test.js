@@ -4,6 +4,11 @@ test('can replace traditional functions', () => {
   // Write two functions that take two params and return their product
   // For 'fnMultiply', set it equal to a regular function
   // For 'arrowMultiply', set it equal to an arrow function
+  fnMultiply = function (num1, num2) {
+    return num1 * num2
+  }
+
+  arrowMultiply = (num1, num2) => num1 * num2
 
   expect(fnMultiply(5, 5)).toBe(arrowMultiply(5, 5))
 })
@@ -12,15 +17,13 @@ test('can replace traditional functions #2', () => {
   const nums = [2, 5, 10]
   // Replace the 'function' in this 'map' call with an arrow function.
   // Hint: you shouldn't have any braces or 'return' after you are done
-  const squareCallback = function (num) {
-    return num * num
-  }
+  const squareCallback = (num) => num * num
   const squares = nums.map(squareCallback)
 
   expect(squares.shift()).toBe(4)
   expect(squares.shift()).toBe(25)
   expect(squares.shift()).toBe(100)
-  expect(() => noop(squareCallback)).toThrow('squareCallback is not defined')
+  expect(() => noop(squareCallback)).not.toThrow('squareCallback is not defined')
 })
 
 test('binds `this` to the eval scope, not the runtime scope', () => {
@@ -29,7 +32,7 @@ test('binds `this` to the eval scope, not the runtime scope', () => {
   const person = {
     name: 'Aaron',
     greetFriends: function (friends) {
-      return friends.map(function (friend) {
+      return friends.map((friend) => {
         return this.name + ' greets to ' + friend
       })
     },
