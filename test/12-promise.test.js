@@ -6,19 +6,19 @@ test(`should resolve`, () => {
     .then(
       result => {
         // throw new Error('this should not run')
-        // expect(result).toBe(/*ENTER GUESS HERE*/)
-        throw new Error('assert or throw here')
+        expect(result).toBe('ripe apple')
+        // throw new Error('assert or throw here')
       },
       error => {
         // throw new Error('this should not run')
         // expect(error).toBe(/*ENTER GUESS HERE*/)
-        throw new Error('assert or throw here')
+        // throw new Error('assert or throw here')
       },
     )
     .catch(error => {
       // throw new Error('this should not run')
       // expect(error).toBe(/*ENTER GUESS HERE*/)
-      throw new Error('assert or throw here')
+      // throw new Error('assert or throw here')
     })
 })
 
@@ -28,18 +28,18 @@ test(`should reject`, () => {
       result => {
         // throw new Error('this should not run')
         // expect(result).toBe(/*ENTER GUESS HERE*/)
-        throw new Error('assert or throw here')
+        // throw new Error('assert or throw here')
       },
       error => {
         // throw new Error('this should not run')
-        // expect(error).toBe(/*ENTER GUESS HERE*/)
-        throw new Error('assert or throw here')
+        expect(error).toBe('unripe apple')
+        // throw new Error('assert or throw here')
       },
     )
     .catch(error => {
       // throw new Error('this should not run')
       // expect(error).toBe(/*ENTER GUESS HERE*/)
-      throw new Error('assert or throw here')
+      // throw new Error('assert or throw here')
     })
 })
 
@@ -48,12 +48,12 @@ test(`errors can be caught`, () => {
     .then(result => {
       // throw new Error('this should not run')
       // expect(result).toBe(/*ENTER GUESS HERE*/)
-      throw new Error('assert or throw here')
+      // throw new Error('assert or throw here')
     })
     .catch(error => {
       // throw new Error('this should not run')
-      // expect(error).toBe(/*ENTER GUESS HERE*/)
-      throw new Error('assert or throw here')
+      expect(() => {throw error}).toThrow('out of apples')
+      // throw new Error('assert or throw here')
     })
 })
 
